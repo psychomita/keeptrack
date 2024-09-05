@@ -15,3 +15,10 @@ export async function createTodo(formData: FormData) {
   });
   revalidatePath("/");
 }
+
+export async function readTodos() {
+  const data = await prisma.todo.findMany({orderBy: {
+    createdAt: "desc"
+  }});
+  return data;
+}
