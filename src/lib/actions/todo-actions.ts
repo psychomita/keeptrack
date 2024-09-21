@@ -22,3 +22,12 @@ export async function readTodos() {
   }});
   return data;
 }
+
+export async function deleteTodo(id: string) {
+  await prisma.todo.delete({
+    where: {
+      id: id,
+    },
+  });
+  revalidatePath("/");
+}
