@@ -1,5 +1,5 @@
 "use client";
-import { deleteTodo } from "@/lib/actions/todo-actions";
+import { deleteTodo, updateTodoStatus } from "@/lib/actions/todo-actions";
 import { formatDate } from "@/lib/utils";
 import React from "react";
 
@@ -15,12 +15,22 @@ function Todo({ todo }: { todo: TodoProps }) {
   return (
     <div className="flex flex-col w-[500px] bg-zinc-100 rounded-lg border px-4 p-3">
       <div className="flex justify-between">
-        <h1 className="font-bold text-2xl">{todo.title}</h1>
+        <div className="flex items-center space-x-3">
+          <input
+            type="checkbox"
+            checked={todo.isCompleted}
+            onClick={async () => {
+              await updateTodoStatus(todo.id, !todo.isCompleted);
+            }}
+          />
+          <h1 className="font-bold text-2xl">{todo.title}</h1>
+        </div>
         <button
           onClick={async () => {
             await deleteTodo(todo.id);
           }}
-          className="text-red-600 active:scale-95">
+          className="text-red-600 active:scale-95"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

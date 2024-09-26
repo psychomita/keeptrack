@@ -31,3 +31,15 @@ export async function deleteTodo(id: string) {
   });
   revalidatePath("/");
 }
+
+export async function updateTodoStatus(id: string, isCompleted: boolean) {
+  await prisma.todo.update({
+    where: {
+      id: id,
+    },
+    data: {
+      isCompleted: isCompleted,
+    },
+  });
+  revalidatePath("/");
+}
