@@ -16,10 +16,13 @@ export async function createTodo(formData: FormData) {
   revalidatePath("/");
 }
 
-export async function readTodos() {
-  const data = await prisma.todo.findMany({orderBy: {
-    createdAt: "desc"
-  }});
+export async function readTodos(isCompleted: boolean) {
+  const data = await prisma.todo.findMany({
+    where: { isCompleted: isCompleted },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
   return data;
 }
 
@@ -39,6 +42,18 @@ export async function updateTodoStatus(id: string, isCompleted: boolean) {
     },
     data: {
       isCompleted: isCompleted,
+    },
+  });
+  revalidatePath("/");
+}
+
+export async function updateTodo(id: string, title: string) {
+  await prisma.todo.update({
+    where: {
+      id: id,
+    },
+    data: {
+      title: title,
     },
   });
   revalidatePath("/");
