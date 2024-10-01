@@ -8,7 +8,7 @@ export default async function Home() {
   const todosDetails = (await readTodos(false)) as TodoProps[];
   const completedTodos = (await readTodos(true)) as TodoProps[];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-24">
       <div className="flex justify-between items-center w-full max-w-lg">
         <Logo className="w-56 h-auto" />
         <p className="text-zinc-700 italic">{formatDateLong(new Date())}</p>
@@ -20,7 +20,10 @@ export default async function Home() {
           <AddTodo />
         </div>
         <p className="text-center text-sm text-zinc-500">
-          Made by <a href="https://github.com/psychomita" className="text-pink-600">@psychomita</a>
+          Made by{" "}
+          <a href="https://github.com/psychomita" className="text-pink-600">
+            @psychomita
+          </a>
         </p>
       </div>
     </main>
