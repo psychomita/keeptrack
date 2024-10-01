@@ -19,6 +19,9 @@ export default async function Home() {
         <div>
           <AddTodo />
         </div>
+        <p className="text-center text-sm text-zinc-500">
+          Made by <a href="https://github.com/psychomita" className="text-pink-600">@psychomita</a>
+        </p>
       </div>
     </main>
   );
