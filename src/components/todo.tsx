@@ -20,7 +20,7 @@ function Todo({ todo }: { todo: TodoProps }) {
   const [title, setTitle] = React.useState(todo.title);
 
   return (
-    <div className="flex flex-col w-[500px] bg-zinc-100 rounded-lg border-2 border-black px-4 p-3">
+    <div className="flex flex-col w-full bg-zinc-100 rounded-lg border-2 border-black px-4 p-3">
       <div className="flex justify-between mb-2">
         <div className="flex items-center space-x-3 text-wrap">
           <input
@@ -29,8 +29,8 @@ function Todo({ todo }: { todo: TodoProps }) {
             onClick={async () => {
               await updateTodoStatus(todo.id, !todo.isCompleted);
             }}
-            className={`h-5 w-5 rounded-md text-green-500 focus:ring-0 focus:ring-offset-0 ${
-              todo.isCompleted ? "border-green-500" : "border-red-500"
+            className={`h-5 w-5 rounded-md text-[#0AE21F] focus:ring-0 focus:ring-offset-0 ${
+              todo.isCompleted ? "border-[#0AE21F]" : "border-red-500"
             }`}
           />
           {isEditing ? (
@@ -42,7 +42,7 @@ function Todo({ todo }: { todo: TodoProps }) {
               }}
             />
           ) : (
-            <h1 className="font-semibold text-xl w-[300px] truncate">
+            <h1 className="font-medium text-xl w-[300px] truncate">
               {todo.title}
             </h1>
           )}
