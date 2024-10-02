@@ -1,5 +1,6 @@
 # KeepTrack 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+<p align="left"> <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHkxMmwyanR3MHBoZGM5Ym5rNnBvbnp6cjNkYm9namVyZ2NlZDlweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y0b2MpUTfnrUa3jIM7/giphy.gif" alt="Logo" /> </p>
 
 A fast and simple todo app made with Next.JS and MongoDB.
 
